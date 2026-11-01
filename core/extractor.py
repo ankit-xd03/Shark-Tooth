@@ -262,6 +262,7 @@ def extract(text: str, service_id: str = "scholarship"):
         except Exception as e:
             log.warning("LLM extraction failed: %s", type(e).__name__)
             return (demo_extract(text, service_id), "demo",
-                    f"The LLM API is unavailable ({type(e).__name__}). Using the deterministic demo "
+                    f"The LLM API is unavailable ({type(e).__name__} {getattr(e, 'code', '')}, "
+                    f"provider={config.llm_provider()}, model={config.llm_model()}). Using the deterministic demo "
                     "parser instead. Click Analyze again to retry the LLM.")
     return demo_extract(text, service_id), "demo", None
