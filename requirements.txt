@@ -1,0 +1,7 @@
+streamlit>=1.50
+playwright>=1.48
+anthropic>=0.40
+python-dotenv>=1.0
+pytest>=8.0
+pypdf>=5.0
+
