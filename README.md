@@ -1,5 +1,14 @@
 # CivicPilot AI: Autonomous Public Service & Bureaucracy Execution Agent
 
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://YOUR-APP-NAME.streamlit.app)
+
+## Live Demo
+
+**Try it here:** https://shark-toothgit-znxkrmvndteizmtbunw4jy.streamlit.app
+
+- All data is fictional.
+- If the app has been idle, click "Yes, get this app back up!" and wait about a minute.
+
 A conversational agent that completes **public-service applications** (student scholarship, driving-licence
 renewal, LPG-connection subsidy claim) by driving a real browser (Playwright) through a **legacy-style mock
 government portal**: server-rendered wizards, blocking cookie notices, session timeouts, coded dropdowns,
