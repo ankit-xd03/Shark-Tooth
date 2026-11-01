@@ -1,6 +1,8 @@
 """CivicPilot AI - Streamlit UI. Run: streamlit run app.py"""
 import json
 import logging
+import subprocess
+import sys
 from pathlib import Path
 
 import streamlit as st
@@ -58,6 +60,15 @@ def browser_checks() -> list:
     """Python + Playwright Chromium launch test, cached per server (cleared by 'Re-check setup')."""
     return preflight.run_all(include_portal=False)
 
+
+@st.cache_resource(show_spinner="Installing browser (first start only)...")
+def ensure_chromium() -> bool:
+    """Download Playwright's Chromium once per server start (needed on Streamlit Community Cloud)."""
+    subprocess.run([sys.executable, "-m", "playwright", "install", "chromium"], check=False)
+    return True
+
+
+ensure_chromium()
 
 portal_error = start_portal()
 
