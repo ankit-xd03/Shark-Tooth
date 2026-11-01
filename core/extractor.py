@@ -196,8 +196,9 @@ def demo_extract(text: str, service_id: str = "scholarship") -> dict:
 
 
 def _post_json(url: str, headers: dict, body: dict) -> dict:
-    req = urllib.request.Request(url, json.dumps(body).encode(),
-                                 {"Content-Type": "application/json", **headers})
+       req = urllib.request.Request(url, json.dumps(body).encode(),
+                                 {"Content-Type": "application/json",
+                                  "User-Agent": "Mozilla/5.0 (compatible; CivicPilot/1.0)", **headers})
     with urllib.request.urlopen(req, timeout=20) as r:
         return json.loads(r.read())
 
